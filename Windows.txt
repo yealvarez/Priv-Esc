@@ -14,6 +14,9 @@ CLSID => http://ohpe.it/juicy-potato/CLSID/Windows_10_Pro/
 ==============================================================================
 [+] AutoLogon credentials 
 ==============================================================================
+# Automatic
+winPEAS.exe
+# Manual
 cd "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 [Environment]::Is64BitOperatingSystem
 true
