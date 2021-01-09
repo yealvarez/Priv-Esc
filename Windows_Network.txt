@@ -17,9 +17,12 @@ netsh advfirewall firewall add rule name="SMB Port In" protocol=TCP dir=in local
 netsh advfirewall firewall add rule name="SMB Port Out" protocol=TCP dir=out localport=445 action=allow
 cmd /c reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
 net share compartido=C:\Windows\Temp /GRANT:Administrators,FULL
+# connect Linux client
+smbclient '\\10.10.10.81\compartido' -U  usuario
 
 ==============================================================================
 [+] Enable RDP
 ==============================================================================
 netsh advfirewall firewall add rule name="RDP Port In" protocol=TCP dir=in localport=3389 action=allow
 netsh advfirewall firewall add rule name="RDP Port Out" protocol=TCP dir=out localport=3389 action=allow
+cmd /c reg add "HKLM\SOFTWARE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
