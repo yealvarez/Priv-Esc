@@ -5,6 +5,7 @@ net users
 net share
 NET ACCOUNTS
 NET ACCOUNTS /DOMAIN
+net localgroup
 ==============================================================================
 [+] Create user
 ==============================================================================
@@ -25,4 +26,5 @@ smbclient '\\10.10.10.81\compartido' -U  usuario
 ==============================================================================
 netsh advfirewall firewall add rule name="RDP Port In" protocol=TCP dir=in localport=3389 action=allow
 netsh advfirewall firewall add rule name="RDP Port Out" protocol=TCP dir=out localport=3389 action=allow
-cmd /c reg add "HKLM\SOFTWARE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+cmd /c reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+net localgroup "Remote Desktop Users" usuario1 /add
