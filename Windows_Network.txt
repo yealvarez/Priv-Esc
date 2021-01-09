@@ -1,0 +1,10 @@
+==============================================================================
+[+] Create user
+==============================================================================
+net user usuario /add
+net localgroup Administrators usurio /add
+==============================================================================
+[+] Enable smb
+==============================================================================
+netsh advfirewall firewall add rule name="SMB Port In" protocol=TCP dir=in localport=445 action=allow
+netsh advfirewall firewall add rule name="SMB Port Out" protocol=TCP dir=out localport=445 action=allow
