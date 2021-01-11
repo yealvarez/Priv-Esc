@@ -27,6 +27,6 @@ smbclient '\\10.10.10.81\compartido' -U  usuario
 netsh advfirewall firewall add rule name="RDP Port In" protocol=TCP dir=in localport=3389 action=allow
 netsh advfirewall firewall add rule name="RDP Port Out" protocol=TCP dir=out localport=3389 action=allow
 cmd /c reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-net localgroup "Remote Desktop Users" usuario1 /add
+net localgroup "Remote Desktop Users" usuario /add
 # Connect Linux client
 xfreerdp /u:usuario1 /d:WORKGROUP /p:123456789a* /v:10.10.10.81 
