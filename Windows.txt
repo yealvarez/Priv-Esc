@@ -29,9 +29,13 @@ CLSID => http://ohpe.it/juicy-potato/CLSID/Windows_10_Pro/
 ==============================================================================
 [+] Windows Exploit Suggester
 ==============================================================================
+# Python 2.7
 python windows-exploit-suggester.py --hrlp
 python windows-exploit-suggester.py -u
 python windows-exploit-suggester.py -i systeminfo.txt -d 2021-01-12-mssb.xls
+
+# Python 3
+python3 wes.py sisteminfo.tx
 
 ==============================================================================
 [+] AutoLogon credentials 
